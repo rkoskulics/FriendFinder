@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "A way of finding fellow book lovers",
+  "main": "server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkoskulics/FriendFinder.git"
+  },
+  "author": "Rob Koskulics",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkoskulics/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/rkoskulics/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  }
+}
