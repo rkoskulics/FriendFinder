@@ -17,12 +17,12 @@
     		<h4>
       			<label for="name">Name</label>
       		</h4>
-      		<input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Bart Simpson">
+      		<input type="name" class="form-control" id="name" placeholder="Bart Simpson">
     		<small class="form-text text-muted">Required</small>
     		<h4>
       		<label for="name">Link to a photo</label>
       		</h4>
-      		<input type="link" class="form-control" id="link" aria-describedby="emailHelp">
+      		<input type="link" class="form-control" id="link">
     		<small class="form-text text-muted">Required</small>
     		<hr>
     		<h3><strong>Question 1</strong></h3>
@@ -55,7 +55,7 @@
     		<h4>You mainly think about the content once a book is done</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q3" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -68,7 +68,7 @@
     		<h4>You mainly think about the storytelling techniques once a story is done</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q4" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -81,7 +81,7 @@
     		<h4>You prefer fiction</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q5" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -94,7 +94,7 @@
     		<h4>You like to read before bed</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q6" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -107,7 +107,7 @@
     		<h4>You read books from lots of genres</h4>
      		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q7" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -120,7 +120,7 @@
     		<h4>You only read one book at at time</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q8" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -133,7 +133,7 @@
     		<h4>You rarely reread books</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q9" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -146,7 +146,7 @@
     		<h4>When you find a writer you like you like to read all their books</h4>
     		<div class="form-group">
       			<label for="question1">Select an Option</label>
-      			<select class="form-control" id="q2" style="width: 200px">
+      			<select class="form-control" id="q10" style="width: 200px">
 			        <option value="1">1(Strongly Disagree</option>
 			        <option value="2">2</option>
 			        <option value="3">3</option>
@@ -157,6 +157,28 @@
     	</div>
 		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i aria-hidden="true"></i>Submit</button>
 	</div>
-
+<script type="text/javascript">
+	$("#submit").on("click", function(){
+		event.preventDefault();
+		var newUser ={
+			name: $("#name").val(),
+			photo: $("#link").val(),
+			scores:[
+				$("#q1").val(),
+				$("#q2").val(),
+				$("#q3").val(),
+				$("#q4").val(),
+				$("#q5").val(),
+				$("#q6").val(),
+				$("#q7").val(),
+				$("#q8").val(),
+				$("#q9").val(),
+				$("#q10").val()
+			]
+		}
+		console.log(newUser)
+	})
+	module.exports.newUser = newUser;
+</script>
 </body>
 </html>

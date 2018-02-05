@@ -1,3 +1,4 @@
+// Create dummy data for use in the app
 var users = [
 {
     "name":"Bob",
@@ -80,3 +81,5 @@ var users = [
       ]
   }
 ]
+// Export the data to make it available in other files.
+module.exports.users = users
