@@ -1,4 +1,2 @@
 var Users = require("../data/friends.js")
-var NewUser = require("../public/survey.html")
-console.log(Users.users)
-// console.log(NewUser.newUser)
+console.log(Users.users[1])
