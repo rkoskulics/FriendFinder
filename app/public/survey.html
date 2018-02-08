@@ -167,6 +167,7 @@
 	</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
 	$("#submit").on("click", function (event) {
 			event.preventDefault();
 			var newUser = {
@@ -186,16 +187,12 @@
 				]
 			}
 
-			$.post("/api/friends/", newUser, 
-				function(data){
-					if(data){
-						res.json(true)
-						console.log(newUser)
-
-					}
+			$.post("/api/friends/", newUser,
+			function(data){
+					console.log(newUser)
 				})
+	})
 
-		})
 </script>
 </body>
 </html>

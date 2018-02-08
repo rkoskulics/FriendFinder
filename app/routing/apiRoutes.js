@@ -5,6 +5,7 @@ var Users = require("../data/friends");
 var users = Users.users;
 var newUser = Users.newUser;
 
+
 // Logic to compare the data the user types in to the dummy data
 var eachDifferenceArray = [];
 function compare() {
@@ -29,10 +30,14 @@ module.exports = function(app){
         console.log("api/friends")
         return res.json(users);
     });
-    app.post("api/friends", function(req, res){
+    app.post("/api/friends", function(req, res){
         newUser.push(req.body);
         res.json(true)
+        compare();
+        // smallestDifference(eachDifferenceArray)
+        console.log("hello")
         console.log(newUser)
+        console.log(users)
     })
 
 
