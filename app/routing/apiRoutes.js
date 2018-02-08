@@ -29,6 +29,8 @@ module.exports = function(app){
         console.log("api/friends")
         return res.json(users);
     });
+    // Attempt to push the data to survery HTML
+    // TODO get this to work!
     app.post("/api/friends", function(req, res){
         newUser.push(req.body);
         console.log(newUser)
