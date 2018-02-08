@@ -10,15 +10,20 @@ var app = express();
 var PORT = 3000;
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static( 'public'));
-app.get("/survey", function (req, res) {
-  res.sendFile(path.join(__dirname, "../app/public/survey.html "));
-});
-require("./app/routing/htmlRoutes")(app);
-// require("./app/routing/apiRoutes")(data);
 
+app.all('*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+  next();
+});
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
+
+require("./app/routing/apiRoutes")(app)
+require("./app/routing/htmlRoutes")(app);
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);

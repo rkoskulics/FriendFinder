@@ -1,5 +1,4 @@
-// Get the data from the survery and save it in a new variable
-$("#submit").on("click", function () {
+$("#submit").on("click", function (event) {
     event.preventDefault();
     var newUser = {
         name: $("#name").val(),

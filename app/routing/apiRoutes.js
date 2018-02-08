@@ -9,14 +9,15 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
-// Require friends.js JSON data
 
-var Users = require("../data/friends.js");
+// Get the data from friend.js to show as JSON object
+var Users = require("../data/friends")
 var users = Users.users
 
-module.exports = function(data){
-    app.get("/api/friends", function (req, res) {
+module.exports = function(app){
+app.get("/api/friends", function (req, res) {
     console.log("api/friends")
-        return res.json(users);
-    });
+    return res.json(users);
+});
 };
+
