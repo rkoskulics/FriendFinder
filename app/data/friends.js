@@ -81,29 +81,29 @@ var users = [
       ]
   }
 ]
-// Get the data from the survery and save it in a new variable
-$("#submit").on("click", function(){
-    event.preventDefault();
-    var newUser ={
-        name: $("#name").val(),
-        photo: $("#link").val(),
-        scores:[
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
-        ]
-    }
-    console.log(newUser)
+// // Get the data from the survery and save it in a new variable
+// $("#submit").on("click", function(){
+//     event.preventDefault();
+//     var newUser ={
+//         name: $("#name").val(),
+//         photo: $("#link").val(),
+//         scores:[
+//             $("#q1").val(),
+//             $("#q2").val(),
+//             $("#q3").val(),
+//             $("#q4").val(),
+//             $("#q5").val(),
+//             $("#q6").val(),
+//             $("#q7").val(),
+//             $("#q8").val(),
+//             $("#q9").val(),
+//             $("#q10").val()
+//         ]
+//     }
+//     console.log(newUser)
 
-})
-console.log(users[1]);
+// })
+// console.log(users[1]);
 // Export the data to make it available in other files.
 module.exports.users = users
-module.exports.newUser = newUser
+// module.exports.newUser = newUser
