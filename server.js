@@ -22,6 +22,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
+// Get the data from the HTML and API routing files
 require("./app/routing/apiRoutes")(app)
 require("./app/routing/htmlRoutes")(app);
 

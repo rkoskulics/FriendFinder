@@ -155,12 +155,18 @@
 			        <option value="5">5(Strongly Agree)</option>
       			</select>
     		</div>
-    	</div>
-		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i aria-hidden="true"></i>Submit</button>
+		</div>
+		<a href="api/friends">
+			<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i aria-hidden="true"></i>Submit</button>
+		</a>
 	</div>
+	<footer class="footer">
+		<div class="container">
+			<p><a href="/api/friends">API Friend Table Link</a> | <a href="https://github.com/rkoskulics/FriendFinder">Github Repo</a></p>
+		</div>
+	</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- <script src="./survey.js" type="text/javascript"></script> -->
-<script>
+<script type="text/javascript">
 	$("#submit").on("click", function (event) {
 			event.preventDefault();
 			var newUser = {
@@ -179,7 +185,15 @@
 					$("#q10").val()
 				]
 			}
-			console.log(newUser)
+
+			$.post("/api/friends/", newUser, 
+				function(data){
+					if(data){
+						res.json(true)
+						console.log(newUser)
+
+					}
+				})
 
 		})
 </script>
