@@ -160,6 +160,22 @@
 			<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i aria-hidden="true"></i>Submit</button>
 		</a>
 	</div>
+	<div class="modal" id="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Your Results</h5>
+					<button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p id="resultName"></p>
+				</div>
+
+			</div>
+		</div>
+	</div>
 	<footer class="footer">
 		<div class="container">
 			<p><a href="/api/friends">API Friend Table Link</a> | <a href="https://github.com/rkoskulics/FriendFinder">Github Repo</a></p>
@@ -169,7 +185,7 @@
 <script type="text/javascript">
 
 	$("#submit").on("click", function (event) {
-			event.preventDefault();
+		event.preventDefault();
 			var newUser = {
 				name: $("#name").val(),
 				photo: $("#link").val(),
@@ -185,12 +201,19 @@
 					$("#q9").val(),
 					$("#q10").val()
 				]
-			}
+		}
 
-			$.post("/api/friends/", newUser,
+		$.post("/api/friends/", newUser,
 			function(data){
-					console.log(newUser)
-				})
+				console.log(newUser)
+			})
+			$("#myModal").show();
+			// $("#nameResult").text(data.name)
+
+	})
+
+	$("#close").on("click", function (event){
+		$("#myModal").hide();
 	})
 
 </script>

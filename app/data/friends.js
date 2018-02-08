@@ -83,7 +83,7 @@ var users = [
 ]
 
 // Create blank variable to hold the new user
-var newUser = [];
+var newUser = []
 // Export the data to make it available in other files.
 module.exports.users = users;
 module.exports.newUser = newUser

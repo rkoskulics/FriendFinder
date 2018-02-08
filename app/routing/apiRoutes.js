@@ -4,7 +4,7 @@
 var Users = require("../data/friends");
 var users = Users.users;
 var newUser = Users.newUser;
-
+var matchedUser
 
 // Logic to compare the data the user types in to the dummy data
 var eachDifferenceArray = [];
@@ -12,17 +12,16 @@ function compare() {
     for (var i = 0; i < users.length; i++) {
         var eachDifference = 0
         for (var j = 0; j < users[i].scores.length; j++) {
-            var difference = Math.abs(users[i].scores[j] - newUser.scores[j]);
+            var difference = Math.abs(users[i].scores[j] - newUser[0].scores[j]);
             eachDifference = difference + eachDifference;
         }
         eachDifferenceArray.push(eachDifference)
     }
     console.log(eachDifferenceArray)
+    var closestMatch = eachDifferenceArray.indexOf(Math.min(...eachDifferenceArray));
+    matchedUser = users[closestMatch]
+    console.log(matchedUser)
 }
-function smallestDifference(array) {
-    var closestMatch = array.indexOf(Math.min.apply(null, array));
-    console.log(users[closestMatch].name)
-};
 
 module.exports = function(app){
     // Shows JSON object of current users
@@ -32,12 +31,11 @@ module.exports = function(app){
     });
     app.post("/api/friends", function(req, res){
         newUser.push(req.body);
-        res.json(true)
-        compare();
-        // smallestDifference(eachDifferenceArray)
-        console.log("hello")
         console.log(newUser)
         console.log(users)
+        compare();
+        res.json(matchedUser);
+
     })
 
 
