@@ -208,9 +208,14 @@
 				console.log(newUser)
 			})
 			$("#myModal").show();
-			// $("#nameResult").text(data.name)
 
 	})
+	    $.get("/api/friends", function (data) {
+			console.log(data);
+			if (data) {
+				$("#nameResult").text(data.name)
+			}
+		});
 
 	$("#close").on("click", function (event){
 		$("#myModal").hide();
