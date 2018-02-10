@@ -204,10 +204,14 @@
 		}
 
 		$.post("/api/friends/", newUser,
-			function(data){
-				console.log(newUser)
+			function (data) {
+				console.log(data);
+				$(".modal-body").text(data.name);
+				$(".modal-body").append("<br>")
+				$(".modal-body").append("<img src='" + data.photo + "' width=150>");
+				//console.log(newUser)
 			})
-			$("#myModal").show();
+		$("#myModal").show();
 
 	})
 	    $.get("/api/friends", function (data) {

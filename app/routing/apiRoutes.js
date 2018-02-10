@@ -7,8 +7,9 @@ var newUser = Users.newUser;
 var matchedUser
 
 // Logic to compare the data the user types in to the dummy data
-var eachDifferenceArray = [];
+
 function compare() {
+    var eachDifferenceArray = [];
     for (var i = 0; i < users.length; i++) {
         var eachDifference = 0
         for (var j = 0; j < users[i].scores.length; j++) {
